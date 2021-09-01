@@ -1,0 +1,22 @@
+<h1>新規投稿画面</h1>
+
+
+ <form id="form1" action="#">
+    <p>ユーザー</p>
+    <input type="text" id="username">
+    <p>投稿内容</p>
+    <input type="text" id="post">
+    <br>
+    <input type="button" onclick="createpost()" value="送信">
+  </form>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js">
+function createpost(){
+    const username = document.getElementById("username");
+    const post = document.getElementById("post");
+    const res = await axios.post('/user', {
+        username: username,
+        content: post
+    })
+}
+</script>
