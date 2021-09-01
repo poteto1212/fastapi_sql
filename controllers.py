@@ -46,5 +46,22 @@ def home(request: Request):
 
 @app.post("/create")
 def create(username: str = Body(...), content: str = Body(...)):
-    print(username)
-    print(content)
+    engine.execute(
+        f"INSERT INTO Post (username,content) VALUES ('{username}','{content}')")
+
+
+@app.get("/delete_wearning")
+def delete_wearning(request: Request):
+    return templates.TemplateResponse('warning.html',
+                                      {'request': request}
+                                      )
+
+
+@app.get("/delete")
+def delete(request: Request):
+    engine.execute(
+        ' DELETE FROM Post'
+    )
+    return templates.TemplateResponse('home.html',
+                                      {'request': request}
+                                      )

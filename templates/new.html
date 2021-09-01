@@ -20,14 +20,14 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
         const createpost = () => {
-            const username = document.getElementById("username");
-            const post = document.getElementById("post");
+            const username = document.getElementById("username").value;
+            const post = document.getElementById("post").value;
             axios.post('/create', {
                 username: username,
                 content: post
             })
               .then(function (response) {
-                alert(response);
+                window.location.href='/home';
               })
               .catch(function (error) {
                 alert(error);
