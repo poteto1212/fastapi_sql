@@ -19,6 +19,7 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script>
+        const createpost = () => {
             axios.post('/user', {
                 username: username,
                 content: post
@@ -29,6 +30,7 @@
               .catch(function (error) {
                 alert(error);
               });
+         }
         </script>
 </body>
 </html>
