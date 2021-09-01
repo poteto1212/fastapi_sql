@@ -1,5 +1,5 @@
 from re import template
-from fastapi import FastAPI
+from fastapi import FastAPI, Body
 from starlette.templating import Jinja2Templates
 from starlette.requests import Request
 
@@ -44,5 +44,7 @@ def home(request: Request):
                                       )
 
 
-# @app.post('/create')
-# def create(request: Request):
+@app.post("/create")
+def create(username: str = Body(...), content: str = Body(...)):
+    print(username)
+    print(content)
